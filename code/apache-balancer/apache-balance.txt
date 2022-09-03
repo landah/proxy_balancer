@@ -1,0 +1,4 @@
+docker run --rm httpd:2.4.54 cat /usr/local/apache2/conf/httpd.conf > my-httpd.conf
+docker build -t balancer:1 .
+docker rmi  balancer:1
+docker run  --name httpd   --rm -p 3000:80   balancer:1
